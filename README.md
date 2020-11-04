@@ -18,8 +18,19 @@ Onedrive Directory Index
 2、OneDrive 账号 (个人、企业版或教育版/工作或学校帐户)  
 3、OneIndex 程序   
 
-## 配置：
-<img width="658" alt="image" src="/media/files/install.gif">  
+## 设置 Nginx 伪静态：
+
+<div class="dp-highlighter"><div class="bar"></div>
+
+1.  <span class="keyword">if</span>&nbsp;(!-f&nbsp;<span class="vars">$request_filename</span>){
+2.  &nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;<span class="vars">$rule_0</span>&nbsp;1<span class="vars">$rule_0</span>;
+3.  }
+4.  <span class="keyword">if</span>&nbsp;(!-d&nbsp;<span class="vars">$request_filename</span>){
+5.  &nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;<span class="vars">$rule_0</span>&nbsp;2<span class="vars">$rule_0</span>;
+6.  }
+7.  <span class="keyword">if</span>&nbsp;(<span class="vars">$rule_0</span>&nbsp;=&nbsp;<span class="string">"21"</span>){
+8.  &nbsp;&nbsp;&nbsp;&nbsp;rewrite&nbsp;^/(.*)&nbsp;/index.php?/<span class="vars">$1</span>&nbsp;last;
+9.  }</div>
 
 ### 计划任务  
 [可选]**推荐配置**，非必需。后台定时刷新缓存，可增加前台访问的速度。  
